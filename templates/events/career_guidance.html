@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Career Counseling - Toppers Academy{% endblock %}
+
+{% block extra_css %}
+<style>
+    .counseling-section {
+        padding: 3rem 0;
+    }
+
+    .counseling-card {
+        display: flex;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .counseling-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .counseling-image {
+        flex: 0 0 40%;
+        min-height: 300px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #f8f9fa;
+        padding: 1rem;
+    }
+
+    .counseling-content {
+        flex: 0 0 60%;
+        padding: 2rem;
+    }
+
+    .counseling-title {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .counseling-date {
+        color: #e74c3c;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .counseling-location {
+        color: #666;
+        margin-bottom: 1rem;
+    }
+
+    .counseling-description {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .counseling-details {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+    }
+
+    .counseling-details li {
+        padding: 5px 0;
+        color: #666;
+    }
+
+    .counseling-details i {
+        color: #007bff;
+        margin-right: 10px;
+    }
+
+    /* Video Slider Styles */
+    .video-slider-container {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        margin: 2rem 0;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .video-slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .video-slide {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .video-slide video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #000;
+    }
+
+    .video-slide::before {
+        display: none;
+    }
+
+    .video-slider-nav {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 8px 15px;
+        border-radius: 20px;
+    }
+
+    .video-slider-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .video-slider-dot.active {
+        background: #fff;
+    }
+
+    .video-slider-arrow {
+        position: absolute;
+        top: 50%;
+        color: #fff;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+        transition: background 0.3s ease;
+    }
+
+    .video-slider-arrow:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .video-slider-prev {
+        left: 20px;
+    }
+
+    .video-slider-next {
+        right: 20px;
+    }
+
+    .video-slider-arrow i {
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+        .counseling-card {
+            flex-direction: column;
+        }
+
+        .counseling-image {
+            flex: 0 0 250px;
+            background-size: contain;
+        }
+
+        .counseling-content {
+            flex: 0 0 100%;
+        }
+
+        .video-slider-container {
+            height: 400px;
+        }
+
+        .video-slider-arrow {
+            width: 30px;
+            height: 30px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container counseling-section">
+    <h1 class="text-center mb-5">Career Guidance</h1>
+    
+    <!-- Engineering Counseling -->
+    <div class="counseling-card">
+        <div class="counseling-image" style="background-image: url('/media/events/career guidance/career_orientation_23-24.jpg');"></div>
+        <div class="counseling-content">
+            <h2 class="counseling-title">Career Guidance 23-24</h2>
+            <p class="counseling-description">
+                Comprehensive session on engineering career paths, entrance exams, and future prospects. 
+                Get insights from industry experts and successful alumni.
+            </p>
+        </div>
+    </div>
+
+    <!-- Video Slider for First Event -->
+    <div class="video-slider-container">
+        <div class="video-slider">
+            <div class="video-slide">
+                <video src="/media/events/career guidance/parents_orientation_and_results_mam_speech.mp4" controls muted style="width:100%;"></video>
+            </div>
+        </div>
+        <div class="video-slider-nav">
+            <div class="video-slider-dot active"></div>
+        </div>
+    </div>
+
+    <!-- Medical Career Counseling -->
+    <div class="counseling-card">
+        <div class="counseling-image" style="background-image: url('/media/events/career guidance/parents_orientation_23_june_24-25.jpg');"></div>
+        <div class="counseling-content">
+            <h2 class="counseling-title">Career Guidance 24-25</h2>
+            <p class="counseling-description">
+                Detailed guidance on medical entrance exams, preparation strategies, and career opportunities 
+                in the healthcare sector.
+            </p>
+        </div>
+    </div>
+
+    <!-- Video Slider for Second Event -->
+    <div class="video-slider-container">
+        <div class="video-slider">
+            <div class="video-slide">
+                <video src="/media/events/career guidance/parents_orientation_speech.mp4" loop muted></video>
+            </div>
+        </div>
+        <div class="video-slider-nav">
+            <div class="video-slider-dot active"></div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sliders = document.querySelectorAll('.video-slider-container');
+    
+    sliders.forEach(slider => {
+        const videoSlider = slider.querySelector('.video-slider');
+        const slides = slider.querySelectorAll('.video-slide');
+        const dots = slider.querySelectorAll('.video-slider-dot');
+        const prevBtn = slider.querySelector('.video-slider-prev');
+        const nextBtn = slider.querySelector('.video-slider-next');
+        let currentSlide = 0;
+
+        function updateSlider() {
+            videoSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            // Pause all videos except the current
+            slides.forEach((slide, idx) => {
+                const video = slide.querySelector('video');
+                if (idx === currentSlide) {
+                    video.currentTime = 0;
+                    video.autoplay = true;
+                    video.play();
+                } else {
+                    video.autoplay = false;
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        if (dots) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+        }
+
+        // When a video ends, go to next slide and play
+        slides.forEach((slide, idx) => {
+            const video = slide.querySelector('video');
+            video.addEventListener('ended', () => {
+                nextSlide();
+            });
+        });
+
+        // On load, only play the first video
+        updateSlider();
+    });
+});
+</script>
+{% endblock %}
+{% endblock %}

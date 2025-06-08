@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Toppers Academy{% endblock %}
+{% block extra_css %}
+<style>
+.class-card, .class-card:link, .class-card:visited, .class-card:active, .class-card:hover, .class-card:focus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 2.5rem;
+    text-align: center;
+    color: #000 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.class-card:hover, .class-card:focus {
+    background: #000;
+    color: #fff !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-decoration: none !important;
+    transform: translateY(-5px);
+}
+
+@media (max-width: 991.98px) {
+    .class-card {
+        height: 130px;
+        padding: 2rem;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .class-card {
+        height: 120px;
+        padding: 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-5">EVENTS</h2>
+<div class="bg-light container py-5 ">
+    
+    <div class="row g-4">
+        <!-- Datta Nagar Branch -->
+        <div class="col-lg-6 col-md-6" class="fees_box">
+            <a href="{% url 'events:annualFunction' %}" class="class-card">
+                Annual Function
+            </a>
+        </div>
+
+        <!-- Ambegoan Branch -->
+        <div class="col-lg-6 col-md-6" class="fees_box">
+            <a href="{% url 'events:career_guidance' %}" class="class-card">
+                Career Guidance
+            </a>
+        </div>
+
+        <!-- Narhe Branch -->
+        <div class="col-lg-6 col-md-6" class="fees_box">
+            <a href="{% url 'events:sports_day' %}" class="class-card">
+                Sports Day
+            </a>
+        </div>
+        <div class="col-lg-6 col-md-6" class="fees_box">
+            <a href="{% url 'events:mock_test' %}" class="class-card">
+                Mock Test
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

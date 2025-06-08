@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admission Form Submitted - Toppers Academy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="success-message text-center mt-5">
+        <h2 class="text-success mb-4">Thank You!</h2>
+        <p class="lead">Your admission form has been submitted successfully.</p>
+        <p>We will contact you shortly with further details.</p>
+        <a href="{% url 'admissions:index' %}" class="btn btn-primary mt-3">Back to Admission Form</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .success-message {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        background-color: #fff;
+    }
+    .text-success {
+        color: #28a745;
+    }
+</style>
+{% endblock %} 

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Results - Toppers Academy{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <a href="{% url 'results:10th_result' %}" class="text-decoration-none">
+                <div class="card h-100 shadow-lg hover-card">
+                    <div class="card-body text-center">
+                        <h2 class="card-title mb-4">10th Results</h2>
+                        <p class="card-text">Click here to view the detailed results of our 10th class toppers</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 mb-4">
+            <a href="{% url 'results:12th_result' %}" class="text-decoration-none">
+                <div class="card h-100 shadow-lg hover-card">
+                    <div class="card-body text-center">
+                        <h2 class="card-title mb-4">12th Results</h2>
+                        <p class="card-text">Click here to view the detailed results of our 12th class toppers</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-card {
+        transition: transform 0.3s ease;
+    }
+    .hover-card:hover {
+        transform: translateY(-5px);
+    }
+    .card {
+        border-radius: 15px;
+        border: none;
+    }
+    .card-title {
+        color: #333;
+    }
+    .card-text {
+        color: #666;
+    }
+</style>
+{% endblock %} 

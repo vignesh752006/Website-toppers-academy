@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ambegoan Branch - Toppers Academy{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Ambegoan Branch</h1>
+    
+    <div class="row">
+        <!-- Branch Image -->
+        <div class="col-md-6 mb-4">
+            <img src="{% static 'images/ambegoan-branch.jpg' %}" alt="Ambegoan Branch" class="img-fluid rounded shadow">
+        </div>
+        
+        <!-- Branch Information -->
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">About Our Ambegoan Branch</h2>
+                    <p class="card-text">
+                        Welcome to Toppers Academy's Ambegoan branch, where excellence meets opportunity. 
+                        Our state-of-the-art facility is designed to provide the best learning environment 
+                        for our students.
+                    </p>
+                    
+                    <h3 class="mt-4">Facilities</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Modern Classrooms</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Science Laboratory</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Computer Lab</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Library</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Sports Facilities</li>
+                    </ul>
+                    
+                    <h3 class="mt-4">Contact Information</h3>
+                    <p>
+                        <strong>Address:</strong> opposite flying bird school (Kanhaiya Nursery), Shop N 2, Ambegaon, Narhe Ambegaon Rd, Chauk, Pune, Maharashtra 411046<br>
+                        <strong>Phone:</strong><a href="tel:+91 83087 81194">+91 83087 81194</a><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

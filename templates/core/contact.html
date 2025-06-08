@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Toppers Academy{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-container {
+        padding: 2rem 0;
+    }
+
+    .contact-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .contact-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        border: 3px solid #007bff;
+    }
+
+    .contact-name {
+        color: #2c3e50;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .contact-number {
+        color: #e74c3c;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-number a {
+        color: #e74c3c;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-number a:hover {
+        color: #c0392b;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+        .contact-wrapper {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            flex: 1;
+            margin-bottom: 0;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container contact-container">
+    <h1 class="text-center mb-5">Contact Us</h1>
+    
+    <div class="contact-wrapper">
+        <!-- First Contact Card -->
+        <div class="contact-card">
+            <img src="/media/team/umesh_sir_photo.png" alt="Contact Person 1" class="contact-image">
+            <h2 class="contact-name">Umesh Suryawanshi</h2>
+            <p>Director/Founder</p> 
+            <p class="contact-number">
+                <a href="tel:+91 83087 81194">+91 83087 81194</a>
+            </p>
+        </div>
+
+        <!-- Second Contact Card -->
+        <div class="contact-card">
+            <img src="/media/team/rahul_sir_photo.png" alt="Contact Person 2" class="contact-image">
+            <h2 class="contact-name">Rahul Mhaishale</h2>
+            <p>Director/Founder</p>
+            <p class="contact-number">
+                <a href="tel:+91 86688 63060">+91 86688 63060</a>
+            </p>
+        </div>
+        <!-- Third Contact Card -->
+        <div class="contact-card">
+            <img src="/media/team/dn_patilSirphoto.jpg" alt="Contact Person 2" class="contact-image">
+            <h2 class="contact-name">Dnyaneshwar Patil</h2>
+            <p>DIrector/Founder</p>
+            <p class="contact-number">
+                <a href="tel:+91 99702 00639">+91 9970200639</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

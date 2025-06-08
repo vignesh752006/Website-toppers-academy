@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Poster Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-lg">
+                <img src="/media/results/12th_cet_23-24.jpg" alt="12th Result Poster">
+            </div>
+        </div>
+        
+        <!-- Details Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-lg h-100">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">12th Class Results</h2>
+                    <div class="result-details">
+                        <h3 class="mb-3">Academic Year 2023-2024</h3>
+                        <div class="streams">
+                            <h4 class="mb-3">Science Stream CET</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>First Position:</strong>
+                                    <p class="mb-1">Atharva Nevase - 99.99%tile</p>
+                                    <small class="text-muted">PCB</small>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Second Position:</strong>
+                                    <p class="mb-1">Aashlesha Dumpeti - 99.63%tile</p>
+                                    <small class="text-muted">PCB</small>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Third Position:</strong>
+                                    <p class="mb-1">Rohit Kadam - 97.79%tile</p>
+                                    <small class="text-muted">PCM</small>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="overall-performance mt-4">
+                            <h4>Overall Performance</h4>
+                            <ul class="list-unstyled">
+                                <li>Total Students: 200</li>
+                                <li>Students above 90%: 60</li>
+                                <li>Students above 80%: 120</li>
+                                <li>Pass Percentage: 100%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+        border: none;
+    }
+    .card-img-top {
+        border-radius: 15px 15px 0 0;
+        height: 400px;
+        object-fit: cover;
+    }
+    .streams li {
+        padding: 10px;
+        border-left: 3px solid #28a745;
+        background-color: #f8f9fa;
+        border-radius: 0 5px 5px 0;
+    }
+    .overall-performance li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
+</style>
+{% endblock %} 

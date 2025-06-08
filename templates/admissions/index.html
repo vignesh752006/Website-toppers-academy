@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Toppers Academy - Admission Form{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="admission-form">
+        <h2 class="form-title">Admission Form</h2>
+        <form method="POST" action="{% url 'admissions:admission_form' %}" id="admissionForm" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="parentName" class="form-label">Parent's Name</label>
+                <input type="text" class="form-control" id="parentName" name="parent_name" required>
+                <div class="error-message" id="parentNameError">Name must be at least 5 letters long</div>
+                {% if form.parent_name.errors %}
+                    <div class="error-message">{{ form.parent_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="studentName" class="form-label">Student's Name</label>
+                <input type="text" class="form-control" id="studentName" name="student_name" required>
+                <div class="error-message" id="studentNameError">Name must be at least 5 letters long</div>
+                {% if form.student_name.errors %}
+                    <div class="error-message">{{ form.student_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="contactNumber" class="form-label">Parent's Contact Number</label>
+                <input type="tel" class="form-control" id="contactNumber" name="contact_number" required>
+                <div class="error-message" id="contactNumberError">Please enter a valid 10-digit phone number</div>
+                {% if form.contact_number.errors %}
+                    <div class="error-message">{{ form.contact_number.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="standard" class="form-label">Standard</label>
+                <select class="form-select" id="standard" name="standard" required>
+                    <option value="">Select Standard</option>
+                    <option value="8">8th Standard</option>
+                    <option value="9">9th Standard</option>
+                    <option value="10">10th Standard</option>
+                    <option value="11">11th Standard</option>
+                    <option value="12">12th Standard</option>
+                </select>
+                <div class="error-message" id="standardError">Please select a standard</div>
+                {% if form.standard.errors %}
+                    <div class="error-message">{{ form.standard.errors }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admission-form {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .form-title {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .error-message {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 5px;
+        display: none;
+    }
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #2c3e50;
+        border: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+        background-color: #34495e;
+    }
+    .form-control:focus {
+        border-color: #2c3e50;
+        box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('admissionForm').addEventListener('submit', function(e) {
+        // Reset all error messages
+        document.querySelectorAll('.error-message').forEach(error => {
+            error.style.display = 'none';
+        });
+
+        let isValid = true;
+        const parentName = document.getElementById('parentName').value;
+        const studentName = document.getElementById('studentName').value;
+        const contactNumber = document.getElementById('contactNumber').value;
+        const standard = document.getElementById('standard').value;
+
+        // Validate parent's name
+        if (parentName.length < 5) {
+            document.getElementById('parentNameError').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate student's name
+        if (studentName.length < 5) {
+            document.getElementById('studentNameError').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate contact number
+        if (!/^\d{10}$/.test(contactNumber)) {
+            document.getElementById('contactNumberError').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate standard
+        if (!standard) {
+            document.getElementById('standardError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+
+    // Real-time validation for contact number
+    document.getElementById('contactNumber').addEventListener('input', function(e) {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    });
+</script>
+{% endblock %} 
