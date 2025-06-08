@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Toppers Academy Website
 
 A comprehensive website for Toppers Academy, featuring multiple modules for managing admissions, results, fees, gallery, events, and team information.
@@ -83,3 +84,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For any queries, please contact:
 - Email: info@toppersacademy.com
 - Phone: +1234567890 
+=======
+# Website-toppers-academy
+>>>>>>> b5287eeb8703c68e21e0bead47010f8a89cac40c
