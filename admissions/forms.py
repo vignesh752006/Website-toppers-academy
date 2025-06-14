@@ -4,7 +4,7 @@ from .models import Admission
 class AdmissionForm(forms.ModelForm):
     class Meta:
         model = Admission
-        fields = ['parent_name', 'student_name', 'contact_number', 'standard']
+        fields = ['parent_name', 'student_name', 'contact_number', 'standard','branch']
         
     def clean_parent_name(self):
         parent_name = self.cleaned_data.get('parent_name')

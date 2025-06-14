@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'admissions',
     'gallery',
     'events',
-    'team',
     'about_branches',
 ]
 

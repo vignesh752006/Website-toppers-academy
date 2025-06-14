@@ -51,6 +51,19 @@
                     <div class="error-message">{{ form.standard.errors }}</div>
                 {% endif %}
             </div>
+            <div class="form-group">
+                <label for="branch" class="form-label">Branch</label>
+                <select class="form-select" id="branch" name="branch" required>
+                    <option value="">Select Branch</option>
+                    <option value="Dattanagar">Dattanager</option>
+                    <option value="Ambegoan">Ambegoan</option>
+                    <option value="Narhe">Narhe</option>
+                </select>
+                <div class="error-message" id="standardError">Please select a branch</div>
+                {% if form.branch.errors %}
+                    <div class="error-message">{{ form.standard.errors }}</div>
+                {% endif %}
+            </div>
 
             <button type="submit" class="submit-btn">Submit Application</button>
         </form>
@@ -115,6 +128,7 @@
         const studentName = document.getElementById('studentName').value;
         const contactNumber = document.getElementById('contactNumber').value;
         const standard = document.getElementById('standard').value;
+        const branch = document.getElementById('branch').value;
 
         // Validate parent's name
         if (parentName.length < 5) {
@@ -137,6 +151,11 @@
         // Validate standard
         if (!standard) {
             document.getElementById('standardError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (!branch) {
+            document.getElementById('branchError').style.display = 'block';
             isValid = false;
         }
 

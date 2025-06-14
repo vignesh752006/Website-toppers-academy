@@ -12,6 +12,7 @@ class Admission(models.Model):
     student_name = models.CharField(max_length=100)
     contact_number = models.CharField(max_length=10)
     standard = models.CharField(max_length=2)
+    branch = models.CharField(max_length=100)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='new')
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -31,7 +31,6 @@ urlpatterns = [
     path('admissions/', include('admissions.urls')),
     path('gallery/', include('gallery.urls')),
     path('events/', include('events.urls')),
-    path('team/', include('team.urls')),
     path('about/branches/', include('about_branches.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
