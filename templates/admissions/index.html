@@ -12,7 +12,7 @@
             <div class="form-group">
                 <label for="parentName" class="form-label">Parent's Name</label>
                 <input type="text" class="form-control" id="parentName" name="parent_name" required>
-                <div class="error-message" id="parentNameError">Name must be at least 5 letters long</div>
+                <div class="error-message" id="parentNameError">Name must be at least 5 letters long and contain no number</div>
                 {% if form.parent_name.errors %}
                     <div class="error-message">{{ form.parent_name.errors }}</div>
                 {% endif %}
@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="studentName" class="form-label">Student's Name</label>
                 <input type="text" class="form-control" id="studentName" name="student_name" required>
-                <div class="error-message" id="studentNameError">Name must be at least 5 letters long</div>
+                <div class="error-message" id="studentNameError">Name must be at least 5 letters long and contain no number</div>
                 {% if form.student_name.errors %}
                     <div class="error-message">{{ form.student_name.errors }}</div>
                 {% endif %}
@@ -59,7 +59,7 @@
                     <option value="Ambegoan">Ambegoan</option>
                     <option value="Narhe">Narhe</option>
                 </select>
-                <div class="error-message" id="standardError">Please select a branch</div>
+                <div class="error-message" id="branchError">Please select a branch</div>
                 {% if form.branch.errors %}
                     <div class="error-message">{{ form.standard.errors }}</div>
                 {% endif %}
@@ -131,13 +131,13 @@
         const branch = document.getElementById('branch').value;
 
         // Validate parent's name
-        if (parentName.length < 5) {
+        if (parentName.length < 5|| /\d/.test(parentName)) {
             document.getElementById('parentNameError').style.display = 'block';
             isValid = false;
         }
 
         // Validate student's name
-        if (studentName.length < 5) {
+        if (studentName.length < 5|| /\d/.test(studentName)) {
             document.getElementById('studentNameError').style.display = 'block';
             isValid = false;
         }
