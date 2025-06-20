@@ -13,7 +13,7 @@
           {% if item.media_type == "image" %}
             <img src="{{ item.file.url }}" alt="{{ item.title }}" class="img-fluid">
           {% elif item.media_type == "video" %}
-            <video width="100%" height="auto" controls>
+            <video width="100%" height="auto" controls class="gallery-video">
               <source src="{{ item.file.url }}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -38,4 +38,22 @@
     </a>
   </div>
 </div>
+{% block extra_js %}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const videos = document.querySelectorAll('.gallery-video');
+
+    videos.forEach(video => {
+      video.addEventListener('play', () => {
+        videos.forEach(otherVideo => {
+          if (otherVideo !== video) {
+            otherVideo.pause();
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% endblock %}
 {% endblock %}
