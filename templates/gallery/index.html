@@ -5,25 +5,46 @@
 {% block content %}
 <h2>Gallery</h2>
 <div class="row">
-  {% for item in media_items %}
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">TOPPERS ACADEMY MATHS 10TH LECTURE</h5>
+          <video width="100%" height="auto" controls class="gallery-video">
+            <source src="/media/gallery/sanjay_minge_sir.mp4" type="video/mp4">
+          </video>
+      </div>
+    </div>
+  </div>
     <div class="col-md-4 mb-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
-          {% if item.media_type == "image" %}
-            <img src="{{ item.file.url }}" alt="{{ item.title }}" class="img-fluid">
-          {% elif item.media_type == "video" %}
+          <h5 class="card-title">TOPPERS ACADEMY PHYSICS LECTURE</h5>
             <video width="100%" height="auto" controls class="gallery-video">
-              <source src="{{ item.file.url }}" type="video/mp4">
-              Your browser does not support the video tag.
+              <source src="/media/gallery/rahul_sir_teaching1.mp4" type="video/mp4">
             </video>
-          {% endif %}
         </div>
       </div>
     </div>
-  {% empty %}
-    <p>No media items to display.</p>
-  {% endfor %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">TOPPERS ACADEMY POLITICAL SCIENCE LECTURE</h5>
+            <video width="100%" height="auto" controls class="gallery-video">
+              <source src="/media/gallery/umesh_sir_teaching_video.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">TOPPERS ACADEMY CHEMISTRY LECTURE</h5>
+            <video width="100%" height="auto" controls class="gallery-video">
+              <source src="/media/gallery/patil_sir_teaching.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
   <div style="gap: 10px; padding: 10px; background-color: #f2f2f2; border-radius: 8px;">
     <!-- Instagram Icon and Link -->
     <div style="display: flex; justify-content: center;">

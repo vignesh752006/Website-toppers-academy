@@ -257,10 +257,10 @@
     <div class="video-slider-container">
         <div class="video-slider">
             <div class="video-slide">
-                <video src="/media/events/annual function/farwell_Rupali_mam_video.mp4" loop muted></video>
+                <video src="/media/events/annual function/farwell_Rupali_mam_video.mp4" controls loop muted></video>
             </div>
             <div class="video-slide">
-                <video src="/media/events/annual function/farwell_party_Anant_Raut_sir_video.mp4" loop muted></video>
+                <video src="/media/events/annual function/farwell_party_Anant_Raut_sir_video.mp4" class="videos" controls loop muted></video>
             </div>
         </div>
         <div class="video-slider-nav">
@@ -280,7 +280,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const sliders = document.querySelectorAll('.video-slider-container');
-    
+    const allVideos = document.querySelectorAll('.video-slider-container video');
+
     sliders.forEach(slider => {
         const videoSlider = slider.querySelector('.video-slider');
         const slides = slider.querySelectorAll('.video-slide');
@@ -342,6 +343,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // On load, only play the first video
         updateSlider();
+    });
+
+    // GLOBAL: Pause all other videos when one is played
+    allVideos.forEach(video => {
+        video.addEventListener('play', function() {
+            allVideos.forEach(otherVideo => {
+                if (otherVideo !== video) {
+                    otherVideo.pause();
+                }
+            });
+        });
     });
 });
 </script>
