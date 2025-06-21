@@ -284,7 +284,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const sliders = document.querySelectorAll('.video-slider-container');
-    
+    const allVideos = document.querySelectorAll('.video-slider-container video');
+
     sliders.forEach(slider => {
         const videoSlider = slider.querySelector('.video-slider');
         const slides = slider.querySelectorAll('.video-slide');
@@ -346,6 +347,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // On load, only play the first video
         updateSlider();
+    });
+
+    // GLOBAL: Pause all other videos when one is played
+    allVideos.forEach(video => {
+        video.addEventListener('play', function() {
+            allVideos.forEach(otherVideo => {
+                if (otherVideo !== video) {
+                    otherVideo.pause();
+                }
+            });
+        });
     });
 });
 </script>
