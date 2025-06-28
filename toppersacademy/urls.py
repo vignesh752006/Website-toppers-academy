@@ -19,6 +19,26 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.contrib.sitemaps.views import sitemap
+
+# for sitemaps
+from core.sitemap import StaticViewSitemap
+from events.sitemap import EventSitemap
+from gallery.sitemap import GallerySitemap
+from results.sitemap import ResultSitemap
+from about_branches.sitemap import AboutBranchesSitemap
+from admissions.sitemap import AdmissionSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'events': EventSitemap,
+    'gallery': GallerySitemap,
+    'results': ResultSitemap,
+    'admissions': AdmissionSitemap,
+    'about_branches': AboutBranchesSitemap,
+}
+
+
 # Customize admin site
 admin.site.site_header = "Toppers Academy Administration"
 admin.site.site_title = "Toppers Academy Admin"
@@ -32,6 +52,8 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('events/', include('events.urls')),
     path('about/branches/', include('about_branches.urls')),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
