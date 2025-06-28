@@ -109,31 +109,36 @@
             height: 30px;
         }
     }
+    .quick-link{
+        display: flex;
+        margin: 30px;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="video-slider-container">
+<div class="video-slider-container" id="touch-slider">
     <div class="video-slider">
         <div class="video-slide">
-            <img src="/media/home page/suyash_jadhav97_jee.jpg" controls muted style="width:100%;"></img>
+            <img src="/media/home page/suyash_jadhav97_jee.jpg" muted autoplay loop playsinline></img>
         </div>
         <div class="video-slide">
-            <img src="/media/home page/aditya_97.75_cet.jpg" loop></img>
+            <img src="/media/home page/aditya_97.75_cet.jpg" muted loop playsinline></img>
         </div>
         <div class="video-slide">
-            <img src="/media/home page/vignesh_97.79_cet.jpg" alt="">
+            <img src="/media/home page/vignesh_97.79_cet.jpg" muted loop playsinline></img>
         </div>
         <div class="video-slide">
-            <img src="/media/home page/rohit_98.42_cet.jpg" alt="">
+            <img src="/media/home page/rohit_98.42_cet.jpg" muted loop playsinline></img>
         </div>
         <div class="video-slide">
-            <img src="/media/home page/Aashlesha_99.63_cet.jpg" alt="">
+            <img src="/media/home page/Aashlesha_99.63_cet.jpg" muted loop playsinline></img>
         </div>
         <div class="video-slide">
-            <img src="/media/home page/atharva_99.99_cet_588_neet.jpg" alt="">
+            <img src="/media/home page/atharva_99.99_cet_588_neet.jpg" muted loop playsinline></img>
         </div>
     </div>
+
     <div class="video-slider-nav">
         <div class="video-slider-dot active"></div>
         <div class="video-slider-dot"></div>
@@ -149,6 +154,7 @@
         <i class="fas fa-chevron-right"></i>
     </div>
 </div>
+
 <!-- Hero Section -->
 <section class="hero bg-primary text-white py-5">
     <div class="container">
@@ -161,6 +167,22 @@
         </div>
     </div>
 </section>
+
+<!--Quick Links-->
+<h2 class="text-center mb-4">Quick Links</h2>
+<div class="quick-link">
+    
+    <div>
+        <a href="{% url 'admissions:index' %}" class="btn btn-light btn-lg">Admissions</a>
+        <a href="{% url 'results:index' %}" class="btn btn-light btn-lg">Results</a>
+        <a href="{% url 'core:contact' %}" class="btn btn-light btn-lg">Contact</a>
+    </div>
+    <div>
+        <a href="{% url 'gallery:index' %}" class="btn btn-light btn-lg">Gallery</a>
+        <a href="{% url 'events:index' %}" class="btn btn-light btn-lg">Events</a>
+        <a href="{% url 'core:about' %}" class="btn btn-light btn-lg">About </a>
+    </div>
+</div>
 
 <!-- Features Section -->
 <section class="features py-5">
@@ -319,6 +341,54 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlider();
     });
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const sliderContainer = document.getElementById('touch-slider');
+    const slider = sliderContainer.querySelector('.video-slider');
+    const slides = sliderContainer.querySelectorAll('.video-slide');
+    const dots = sliderContainer.querySelectorAll('.video-slider-dot');
+    const prevBtn = sliderContainer.querySelector('.video-slider-prev');
+    const nextBtn = sliderContainer.querySelector('.video-slider-next');
+
+    let currentSlide = 0;
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+        currentSlide = i;
+        updateSlider();
+    }));
+
+    // Auto Slide
+    setInterval(nextSlide, 5000);
+
+    // Touch Swipe Support
+    let startX = 0;
+    slider.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+    slider.addEventListener('touchend', (e) => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextSlide();
+        else if (endX - startX > 50) prevSlide();
+    });
+
+    updateSlider();
+});
+
+
 </script>
 {% endblock %}
 {% endblock %} 
