@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-a=19(c%op4-=kfi3ok)_y*8u(_$^*oe*r1y2!8uepv5(xi-fds
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.60.233', '192.168.0.107', '192.168.0.106','localhost', '127.0.0.1','192.168.1.39','192.168.0.108','website-toppers-academy-3.onrender.com','www.toppers-academy.in']
+ALLOWED_HOSTS = ['192.168.60.233', '192.168.0.107', '192.168.0.106','localhost', '127.0.0.1','192.168.1.39','192.168.0.108','website-toppers-academy-3.onrender.com','www.toppers-academy.in','toppers-academy.in']
 
 
 # Application definition
